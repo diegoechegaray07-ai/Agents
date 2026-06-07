@@ -1,0 +1,11 @@
+---
+description: Configurar y preparar el entorno de cowork
+globs:
+alwaysApply: false
+---
+
+# setup-cowork
+
+Configurar y preparar el entorno de cowork.
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/setup-cowork/SKILL.md`](../../skills/setup-cowork/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.

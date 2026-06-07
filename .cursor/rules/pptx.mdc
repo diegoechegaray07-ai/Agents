@@ -1,0 +1,11 @@
+---
+description: Crear, leer, editar o maquetar presentaciones de PowerPoint (.pptx)
+globs:
+alwaysApply: false
+---
+
+# pptx
+
+Crear, leer, editar o maquetar presentaciones de PowerPoint (.pptx).
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/pptx/SKILL.md`](../../skills/pptx/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.

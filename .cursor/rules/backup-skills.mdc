@@ -1,0 +1,11 @@
+---
+description: Realizar copias de respaldo/seguridad de las skills de Claude en OneDrive
+globs:
+alwaysApply: false
+---
+
+# backup-skills
+
+Realizar copias de respaldo/seguridad de las skills de Claude en OneDrive.
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/backup-skills/SKILL.md`](../../skills/backup-skills/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.

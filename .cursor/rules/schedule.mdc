@@ -1,0 +1,11 @@
+---
+description: Programar tareas recurrentes, cron jobs o configurar temporizadores
+globs:
+alwaysApply: false
+---
+
+# schedule
+
+Programar tareas recurrentes, cron jobs o configurar temporizadores.
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/schedule/SKILL.md`](../../skills/schedule/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.

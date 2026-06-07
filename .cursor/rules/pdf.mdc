@@ -1,0 +1,11 @@
+---
+description: Procesar archivos PDF (leer, extraer texto o tablas, unir, dividir, rotar, rellenar formularios u OCR)
+globs:
+alwaysApply: false
+---
+
+# pdf
+
+Procesar archivos PDF (leer, extraer texto o tablas, unir, dividir, rotar, rellenar formularios u OCR).
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/pdf/SKILL.md`](../../skills/pdf/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.

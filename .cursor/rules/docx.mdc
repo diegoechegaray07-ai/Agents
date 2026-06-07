@@ -1,0 +1,11 @@
+---
+description: Leer, editar, crear o procesar documentos de Word (.docx)
+globs:
+alwaysApply: false
+---
+
+# docx
+
+Leer, editar, crear o procesar documentos de Word (.docx).
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/docx/SKILL.md`](../../skills/docx/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.

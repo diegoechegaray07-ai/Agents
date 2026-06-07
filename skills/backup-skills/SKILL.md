@@ -1,56 +1,34 @@
 ---
 name: backup-skills
 description: >
-  Hace una copia de respaldo de todas las skills instaladas en Claude hacia la carpeta
-  de OneDrive. Úsala siempre que el usuario cree una nueva skill, modifique una existente,
-  o pida "hacer backup de skills", "guardar skills", "sincronizar skills", "respaldar skills",
-  "copiar skills a OneDrive" o frases similares. También debe ejecutarse automáticamente
-  al final de cualquier proceso de creación o edición de una skill.
+  Realiza una copia de seguridad o respaldo de todas las habilidades de Claude
+  hacia la carpeta configurada en OneDrive. Úsala siempre que el usuario cree una
+  nueva habilidad, edite alguna existente, o pida "hacer backup de las skills",
+  "sincronizar habilidades", "guardar mis skills en OneDrive" o frases afines.
+  También debe sugerirse automáticamente al finalizar cualquier flujo de creación
+  o edición de habilidades.
 ---
 
-## Qué hace esta skill
+# Ejecución de Skill: backup-skills
 
-Copia todas las skills instaladas en Claude hacia la carpeta de respaldo en OneDrive, sobreescribiendo versiones anteriores para mantenerla actualizada.
+Esta habilidad respalda las habilidades activas de Claude en la carpeta de OneDrive.
 
-## Rutas
+## 1. Ejecutar el Respaldo (Python)
 
-- **Origen (skills activas):**
-  `/Users/diegoaechegaray/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/dbe69af9-c783-459f-bd6b-185995f31aaa/9bf4f2be-d17f-43ea-af0f-d29e88269168/skills/`
-
-- **Destino (respaldo OneDrive):**
-  `/Users/diegoaechegaray/Library/CloudStorage/OneDrive-Personal/DCG y ROE - Diego/Diego Contabilidad/Antigravity/Skills/`
-
-## Cómo ejecutar el backup
-
-Correr este comando:
+Ejecuta el script multiplataforma en Python para realizar la copia incremental y sobreescribir las versiones anteriores en OneDrive de manera segura:
 
 ```bash
-ORIGEN="/Users/diegoaechegaray/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/dbe69af9-c783-459f-bd6b-185995f31aaa/9bf4f2be-d17f-43ea-af0f-d29e88269168/skills"
-DESTINO="/Users/diegoaechegaray/Library/CloudStorage/OneDrive-Personal/DCG y ROE - Diego/Diego Contabilidad/Antigravity/Skills"
-
-for skill in "$ORIGEN"/*/; do
-  nombre=$(basename "$skill")
-  rm -rf "$DESTINO/$nombre"
-  cp -r "$skill" "$DESTINO/$nombre"
-  echo "✓ $nombre"
-done
-
-echo ""
-echo "Backup completo. Skills en OneDrive:"
-ls "$DESTINO"
+python scripts/backup.py
 ```
 
-## Formato de respuesta
+*Nota: El script autodetectará la carpeta activa de Claude y la carpeta de OneDrive tanto en Windows como en macOS. Si necesitas forzar rutas personalizadas, define las variables de entorno `CLAUDE_SKILLS_DIR` y `ONEDRIVE_BACKUP_DIR` en el archivo `.env` o en el entorno.*
 
-Después de ejecutar, mostrar:
+## 2. Formato de Respuesta de Confirmación
+Tras completar la copia, muestra a Diego:
+1. La lista de habilidades respaldadas individualmente con un icono de check `✓`.
+2. La cantidad total de habilidades copiadas.
+3. La ruta de destino en OneDrive confirmada.
 
-1. Lista de skills copiadas con ✓
-2. Total de skills respaldadas
-3. Ruta de destino confirmada
-
-## Cuándo ejecutar automáticamente
-
-Siempre que en la conversación se haya creado o modificado una skill, al finalizar el proceso ofrecer hacer el backup:
-> "¿Querés que guarde el backup en OneDrive?"
-
-Si el usuario confirma o dice "sí", ejecutar el backup sin más preguntas.
+## 3. Disparo Automático
+Cuando finalices el proceso de creación o edición de cualquier habilidad en el chat, sugiere a Diego realizar el backup inmediatamente:
+> "¿Querés que guarde el backup en OneDrive ahora?"

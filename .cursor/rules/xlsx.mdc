@@ -1,0 +1,11 @@
+---
+description: Leer, escribir, recalcular o procesar planillas de cálculo Excel (.xlsx)
+globs:
+alwaysApply: false
+---
+
+# xlsx
+
+Leer, escribir, recalcular o procesar planillas de cálculo Excel (.xlsx).
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/xlsx/SKILL.md`](../../skills/xlsx/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.

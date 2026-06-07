@@ -1,0 +1,11 @@
+---
+description: Consolidar, ordenar y limpiar la memoria a largo plazo (MEMORY.md)
+globs:
+alwaysApply: false
+---
+
+# consolidate-memory
+
+Consolidar, ordenar y limpiar la memoria a largo plazo (MEMORY.md).
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/consolidate-memory/SKILL.md`](../../skills/consolidate-memory/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.

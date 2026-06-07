@@ -1,0 +1,11 @@
+---
+description: Crear, evaluar y refinar habilidades (skills) con frameworks de pruebas
+globs:
+alwaysApply: false
+---
+
+# skill-creator
+
+Crear, evaluar y refinar habilidades (skills) con frameworks de pruebas.
+
+Cuando la tarea del usuario coincida, lee y seguí las instrucciones completas en [`skills/skill-creator/SKILL.md`](../../skills/skill-creator/SKILL.md) (incluye sus scripts y referencias). Esa es la fuente de verdad: no dupliques la lógica en esta regla.
