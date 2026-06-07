@@ -32,6 +32,22 @@ set -a; source .env; set +a   # desde la carpeta de la skill alegra-api
 curl -s -u "$ALEGRA_USER:$ALEGRA_TOKEN" "https://app.alegra.com/api/v1/invoices?limit=30&start=0"
 ```
 
+## Cliente compartido (recomendado)
+
+Para consultas desde Python, usá el cliente compartido
+[`skills/_shared/alegra_client.py`](../_shared/alegra_client.py): ya implementa la
+auth desde `.env`, la paginación, el filtrado por fecha en Python, el mapeo de
+medios de pago y la clasificación de turnos descritos abajo.
+
+```python
+from alegra_client import AlegraClient, map_payment_method, turno
+cli = AlegraClient()                       # credenciales del entorno/.env
+ventas = cli.invoices_on("2026-05-23")     # facturas de un día (ya filtradas)
+```
+
+Lo que sigue documenta el comportamiento de la API (útil para `curl` directo o
+para entender qué hace el cliente).
+
 ## Limitaciones importantes de la API
 
 - El límite máximo por request es **30 facturas**. Para períodos más largos, paginar con `start=0`, `start=30`, `start=60`, etc.

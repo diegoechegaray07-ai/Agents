@@ -63,11 +63,16 @@ de cada skill.
 ## Estructura del repo
 
 ```
-skills/      # las skills (contenido principal)
-docs/        # guías de uso
-src/ tests/  # andamiaje para código de agentes a futuro
-AGENTS.md    # índice legible por Codex/Cursor/Coder
+skills/           # las skills (contenido principal)
+skills/_shared/   # código reutilizable (cliente Alegra, PDF de marca, formato)
+docs/             # guías de uso
+tests/            # tests del código compartido (pytest)
+AGENTS.md         # índice legible por Codex/Cursor/Coder
 ```
+
+Código compartido entre skills en [skills/_shared/](skills/_shared/) (con tests en
+[tests/](tests/)): evita reimplementar el cliente de Alegra y el diseño de los PDF
+en cada skill.
 
 ## Licencia
 
