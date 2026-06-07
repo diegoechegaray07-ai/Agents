@@ -27,6 +27,39 @@ recrearse (gotcha OneDrive).
 Posición de marca de agua (`--pos`): primera letra vertical (`t`/`m`/`b`),
 segunda horizontal (`l`/`c`/`r`). Ej: `br` abajo-derecha, `tl` arriba-izquierda.
 
+## Lote (carpeta entera)
+
+`batch <op> <carpeta_entrada> <carpeta_salida>` aplica una operación a todas las
+imágenes que matcheen. Ops: `resize, convert, compress, thumb, watermark, filter,
+removebg, round, pad`. Usa los mismos flags que el comando de archivo único, más:
+
+- `--glob` patrones separados por coma (default: jpg/jpeg/png/webp).
+- `--suffix _web` agrega sufijo al nombre de salida.
+- `--ext webp` fuerza el formato de salida.
+- para `pad`: `--canvas 1080x1080`; para `thumb`: `--size 256`.
+
+```
+python scripts/imgtool.py batch compress ./fotos ./web --target-kb 200 --suffix _web
+python scripts/imgtool.py batch resize ./fotos ./ig --width 1080 --aspect 1:1 --ext webp
+python scripts/imgtool.py batch removebg ./productos ./sin_fondo
+```
+
+## Mockups y PDF — `compose.py`
+
+- `mockup <in> <out> --type phone|browser|frame` — inserta la imagen en un marco
+  generado (teléfono, ventana de navegador, o cuadro con passepartout), con
+  sombra sobre un fondo. `--bg` color, `--no-shadow` para quitar la sombra.
+- `pdf <out> --inputs a.jpg,b.jpg,c.jpg --page a4|a4-landscape|native` — combina
+  varias imágenes en un PDF multipágina (una por página). `--margin`, `--bg`.
+
+```
+python scripts/compose.py mockup captura.png mock.png --type browser
+python scripts/compose.py pdf catalogo.pdf --inputs p1.jpg,p2.jpg,p3.jpg --page a4
+```
+
+Marcos procedurales (sin assets). Para mockups foto-realistas haría falta sumar
+PNGs de marco con zona transparente en `assets/`.
+
 ## Formatos de salida
 
 La extensión define el formato. JPG/PDF se aplanan a RGB automáticamente; PNG y

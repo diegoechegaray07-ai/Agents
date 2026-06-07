@@ -26,7 +26,7 @@ usuario.
 |---|---|---|
 | Retoque/transformación de una imagen existente (resize, crop, formato, compresión, rotar, marca de agua, padding, collage, paleta) | **Local (Pillow)** | `scripts/imgtool.py` — ver [references/edicion-local.md](references/edicion-local.md) |
 | Quitar fondo / recorte por sujeto | **Local** (`rembg` instalado) | `imgtool.py removebg` — [references/edicion-local.md](references/edicion-local.md) |
-| Gráfica comercial: cartel, flyer, placa de redes, banner, sticker | **Composición local** (control total, imprimible) o **Canva** (plantillas) | [references/marketing.md](references/marketing.md) |
+| Gráfica comercial: cartel, flyer, placa de redes, banner, sticker | **Composición local** (control total, imprimible) o **Canva** (plantillas) | [references/marketing.md](references/marketing.md); con marca → [references/kit-marca.md](references/kit-marca.md) |
 | Diseño profesional con plantillas, brand kit, exportar a PDF/PPT | **Canva (MCP)** | [references/canva.md](references/canva.md) |
 | Generar una imagen nueva desde una descripción de texto (logo, ilustración, concepto) | **IA**: Canva generate-design o API externa | [references/generacion-ia.md](references/generacion-ia.md) |
 | Diagrama, infografía, gráfico con datos | **Local/código** (SVG, matplotlib) o Canva | [references/documentos-visuales.md](references/documentos-visuales.md) |
@@ -50,6 +50,11 @@ python scripts/imgtool.py compress foto.jpg foto_web.jpg --target-kb 200
 python scripts/imgtool.py watermark base.png out.png --text "© Diego" --pos br
 python scripts/imgtool.py grid out.png --inputs a.jpg,b.jpg,c.jpg,d.jpg --cols 2
 ```
+
+Para procesar **una carpeta entera** de una, usá `imgtool.py batch <op> <in> <out>`
+(compress/resize/watermark/removebg/etc.). Para **mockups** (imagen en marco de
+teléfono/navegador/cuadro) y **PDF multipágina**, usá `scripts/compose.py`. Detalle
+de ambos en [references/edicion-local.md](references/edicion-local.md).
 
 El script **borra cada salida antes de recrearla**: esquiva el `OSError [Errno 22]`
 que tira PIL al sobrescribir archivos que OneDrive mantiene como placeholder (es

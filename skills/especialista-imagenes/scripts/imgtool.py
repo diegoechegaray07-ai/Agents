@@ -293,6 +293,52 @@ def cmd_filter(a):
     _safe_save(out, a.output)
 
 
+# operaciones aplicables en lote (nombre -> funcion de archivo unico)
+BATCH_OPS = {
+    "resize": cmd_resize, "convert": cmd_convert, "compress": cmd_compress,
+    "thumb": cmd_thumb, "watermark": cmd_watermark, "filter": cmd_filter,
+    "removebg": cmd_removebg, "round": cmd_round, "pad": cmd_pad,
+}
+# ops que fuerzan una extension de salida sin importar el original
+_BATCH_FORCED_EXT = {"removebg": ".png", "round": ".png", "compress": ".jpg"}
+
+
+def cmd_batch(a):
+    """Aplica una operacion a todas las imagenes de una carpeta."""
+    import glob as _glob
+    from types import SimpleNamespace
+    if a.op not in BATCH_OPS:
+        sys.exit(f"batch: op '{a.op}' no soportada. Opciones: {', '.join(BATCH_OPS)}")
+    indir = os.path.abspath(a.indir)
+    outdir = os.path.abspath(a.outdir)
+    files = sorted(f for pat in a.glob.split(",")
+                   for f in _glob.glob(os.path.join(indir, pat.strip())))
+    if not files:
+        sys.exit(f"batch: no hay archivos que matcheen '{a.glob}' en {indir}")
+    os.makedirs(outdir, exist_ok=True)
+    ext = a.ext
+    if ext and not ext.startswith("."):
+        ext = "." + ext
+    ext = ext or _BATCH_FORCED_EXT.get(a.op)
+    done = 0
+    for f in files:
+        stem = os.path.splitext(os.path.basename(f))[0]
+        out_ext = ext or os.path.splitext(f)[1]
+        out = os.path.join(outdir, stem + (a.suffix or "") + out_ext)
+        ns = SimpleNamespace(
+            input=f, output=out,
+            width=a.width, height=a.height, pct=a.pct, aspect=a.aspect,
+            fit=a.fit, pad=a.padcolor,
+            quality=a.quality, target_kb=a.target_kb,
+            text=a.text, logo=a.logo, pos=a.pos, opacity=a.opacity, scale=a.scale,
+            radius=a.radius, name=a.name, amount=a.amount, color=a.color,
+            size=a.size if a.op == "thumb" else a.canvas,
+        )
+        BATCH_OPS[a.op](ns)
+        done += 1
+    print(f"batch {a.op}: {done} archivos -> {outdir}")
+
+
 # ---------------------------------------------------------------- parser
 def build_parser():
     p = argparse.ArgumentParser(description="Operaciones deterministas sobre imagenes (Pillow).")
@@ -383,6 +429,29 @@ def build_parser():
     s.add_argument("name"); s.add_argument("input"); s.add_argument("output")
     s.add_argument("--amount", type=float)
     s.set_defaults(func=cmd_filter)
+
+    s = sub.add_parser("batch", help="aplica una op a toda una carpeta",
+                       description="op: " + ", ".join(BATCH_OPS))
+    s.add_argument("op", help="resize/convert/compress/thumb/watermark/filter/removebg/round/pad")
+    s.add_argument("indir"); s.add_argument("outdir")
+    s.add_argument("--glob", default="*.jpg,*.jpeg,*.png,*.webp",
+                   help="patrones separados por coma (default: imagenes comunes)")
+    s.add_argument("--suffix", help="sufijo para el nombre de salida, ej _web")
+    s.add_argument("--ext", help="forzar formato de salida, ej webp")
+    # flags compartidos con los comandos de archivo unico
+    s.add_argument("--width", type=int); s.add_argument("--height", type=int)
+    s.add_argument("--pct", type=float); s.add_argument("--aspect")
+    s.add_argument("--fit", choices=["cover", "contain", "stretch"], default="cover")
+    s.add_argument("--padcolor", help="relleno si fit=contain")
+    s.add_argument("--quality", type=int); s.add_argument("--target-kb", type=int)
+    s.add_argument("--text"); s.add_argument("--logo")
+    s.add_argument("--pos", default="br"); s.add_argument("--opacity", type=int, default=70)
+    s.add_argument("--scale", type=int); s.add_argument("--radius", type=int, default=40)
+    s.add_argument("--name"); s.add_argument("--amount", type=float)
+    s.add_argument("--size", type=int, default=256, help="lado para thumb")
+    s.add_argument("--canvas", help="lienzo WxH para pad, ej 1080x1080")
+    s.add_argument("--color", default="white", help="relleno para pad")
+    s.set_defaults(func=cmd_batch)
 
     return p
 

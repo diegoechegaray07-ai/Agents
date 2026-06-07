@@ -29,9 +29,11 @@ poder regenerarlo sin rehacerlo. Si se vuelve recurrente, convertilo en sub-skil
 
 ## Identidad de marca
 
-Antes de componer, fijá: paleta (extraela de un logo con `imgtool.py palette`),
-tipografías, y logo en alta. Reusá esos valores en todas las piezas para
-coherencia. Si Diego tiene brand kit en Canva, partí de ahí.
+Antes de componer, fijá: paleta, tipografías y logo en alta, y reusá esos valores
+en todas las piezas. Para **Pet's Company** ya hay un kit armado (logos
+transparentes + paleta cian `#03B0D6`): ver [kit-marca.md](kit-marca.md) y
+`scripts/brandkit.py stamp`. Para otra marca, extraé la paleta con
+`imgtool.py palette` y, si conviene, armá su kit con `brandkit.py build`.
 
 ## Buenas prácticas rápidas
 

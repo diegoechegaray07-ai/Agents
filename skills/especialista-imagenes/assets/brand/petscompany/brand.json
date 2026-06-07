@@ -1,0 +1,40 @@
+{
+  "nombre": "Pet's Company",
+  "tagline": "Especialistas en tu mascota",
+  "colores": {
+    "celeste": "#03B0D6",
+    "celeste_rgb": [
+      3,
+      176,
+      214
+    ],
+    "blanco": "#FFFFFF",
+    "celeste_claro": "#9EE0EC"
+  },
+  "logos": {
+    "icono_celeste": "petscompany/icono_celeste.png",
+    "icono_blanco": "petscompany/icono_blanco.png",
+    "vertical_celeste": "petscompany/vertical_celeste.png",
+    "vertical_blanco": "petscompany/vertical_blanco.png",
+    "horizontal_celeste": "petscompany/horizontal_celeste.png",
+    "horizontal_blanco": "petscompany/horizontal_blanco.png"
+  },
+  "tipografia": {
+    "titular": {
+      "fuente": "Bitter (slab, aproxima el Clarendon del logo)",
+      "archivo": "fonts/Bitter.ttf",
+      "variable": true,
+      "instancia": "Bold"
+    },
+    "tagline": {
+      "fuente": "Montserrat (geometrica, aproxima el Century Gothic del logo)",
+      "archivo": "fonts/Montserrat.ttf",
+      "variable": true,
+      "instancia": "Medium",
+      "tracking": "amplio (mayusculas, +5px a 30pt)"
+    },
+    "identificacion_real": "logo usa Clarendon (titulo) + Century Gothic/Futura (tagline); estas son aproximaciones libres de Google Fonts",
+    "nota": "fuentes variables: cargar con truetype() y luego set_variation_by_name(instancia)"
+  },
+  "origen": "D:\\OneDrive\\DCG y ROE - Diego\\Diego Contabilidad\\Pets Company\\logopetscompany"
+}
