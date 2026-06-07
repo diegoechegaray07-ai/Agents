@@ -36,24 +36,17 @@ del proyecto.
 
 ## Cursor
 
-Cursor lee reglas desde `.cursor/rules/*.mdc` y también `AGENTS.md`. Para una skill:
-
-1. Creá `.cursor/rules/arca-informe.mdc`.
-2. Pegá el cuerpo del `SKILL.md`. Opcionalmente agregá el encabezado de Cursor:
-   ```
-   ---
-   description: Informe PDF de comprobantes ARCA
-   globs:
-   alwaysApply: false
-   ---
-   ```
-3. Cursor también respeta el `AGENTS.md` de la raíz como contexto del proyecto.
+**Ya está listo:** el repo trae `.cursor/rules/*.mdc` (uno por skill). Al abrir el
+repo en Cursor, las reglas se cargan solas y cada una apunta a su `SKILL.md`.
+Cursor también respeta el `AGENTS.md` de la raíz como contexto del proyecto. No
+hay que configurar nada; si querés agregar una skill nueva, copiá una `.mdc`
+existente y cambiale el nombre y la `description`.
 
 ## GitHub Copilot
 
-Copilot usa un único archivo `.github/copilot-instructions.md` por repo. Pegá ahí
-las instrucciones de la(s) skill(s) que quieras que tenga siempre presentes, o un
-resumen que apunte a los `SKILL.md` para que las lea cuando haga falta.
+**Ya está listo:** el repo trae `.github/copilot-instructions.md` con el índice de
+skills, que Copilot toma automáticamente en este repo. Apunta a cada `SKILL.md`
+para que Copilot lo lea cuando la tarea coincida.
 
 ## OpenAI Codex / Codex CLI / "Coder" y agentes que leen AGENTS.md
 

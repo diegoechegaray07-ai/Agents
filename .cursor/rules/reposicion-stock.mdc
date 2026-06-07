@@ -1,0 +1,13 @@
+﻿---
+description: Analizar que comprar/reponer cruzando stock de Alegra con ventas
+globs:
+alwaysApply: false
+---
+
+# reposicion-stock
+
+Analizar que comprar/reponer cruzando stock de Alegra con ventas.
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/reposicion-stock/SKILL.md`](../../skills/reposicion-stock/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.

@@ -1,0 +1,13 @@
+﻿---
+description: Regenerar carteles y stickers de cobro con QR de Pets Company
+globs:
+alwaysApply: false
+---
+
+# qr-pets-company
+
+Regenerar carteles y stickers de cobro con QR de Pets Company.
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/qr-pets-company/SKILL.md`](../../skills/qr-pets-company/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.

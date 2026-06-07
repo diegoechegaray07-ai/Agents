@@ -1,0 +1,13 @@
+﻿---
+description: Generar informe PDF de comprobantes emitidos de ARCA desde un xlsx
+globs:
+alwaysApply: false
+---
+
+# arca-informe
+
+Generar informe PDF de comprobantes emitidos de ARCA desde un xlsx.
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/arca-informe/SKILL.md`](../../skills/arca-informe/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.

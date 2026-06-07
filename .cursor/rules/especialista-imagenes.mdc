@@ -1,0 +1,13 @@
+﻿---
+description: Crear, editar y componer imagenes y grafica de marketing
+globs:
+alwaysApply: false
+---
+
+# especialista-imagenes
+
+Crear, editar y componer imagenes y grafica de marketing.
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/especialista-imagenes/SKILL.md`](../../skills/especialista-imagenes/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.

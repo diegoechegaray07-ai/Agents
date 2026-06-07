@@ -1,0 +1,13 @@
+﻿---
+description: Consultar ventas, facturas, productos y medios de pago de Pets Company via la API de Alegra
+globs:
+alwaysApply: false
+---
+
+# alegra-api
+
+Consultar ventas, facturas, productos y medios de pago de Pets Company via la API de Alegra.
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/alegra-api/SKILL.md`](../../skills/alegra-api/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.

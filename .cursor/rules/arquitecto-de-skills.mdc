@@ -1,0 +1,13 @@
+﻿---
+description: Crear u optimizar skills (eficiencia de tokens, precision, velocidad)
+globs:
+alwaysApply: false
+---
+
+# arquitecto-de-skills
+
+Crear u optimizar skills (eficiencia de tokens, precision, velocidad).
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/arquitecto-de-skills/SKILL.md`](../../skills/arquitecto-de-skills/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.

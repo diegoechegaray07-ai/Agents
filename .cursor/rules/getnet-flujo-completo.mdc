@@ -1,0 +1,13 @@
+﻿---
+description: Descargar transacciones de Getnet por el browser y generar el informe
+globs:
+alwaysApply: false
+---
+
+# getnet-flujo-completo
+
+Descargar transacciones de Getnet por el browser y generar el informe.
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/getnet-flujo-completo/SKILL.md`](../../skills/getnet-flujo-completo/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.

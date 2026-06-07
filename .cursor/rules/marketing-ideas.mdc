@@ -1,0 +1,13 @@
+﻿---
+description: Priorizar ideas de marketing con un score de viabilidad (MFS)
+globs:
+alwaysApply: false
+---
+
+# marketing-ideas
+
+Priorizar ideas de marketing con un score de viabilidad (MFS).
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/marketing-ideas/SKILL.md`](../../skills/marketing-ideas/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.

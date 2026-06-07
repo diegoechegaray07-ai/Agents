@@ -1,0 +1,13 @@
+﻿---
+description: Liquidar la DDJJ de Ingresos Brutos de San Juan desde un xlsx de ARCA
+globs:
+alwaysApply: false
+---
+
+# ddjj-iibb-san-juan
+
+Liquidar la DDJJ de Ingresos Brutos de San Juan desde un xlsx de ARCA.
+
+Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
+[`skills/ddjj-iibb-san-juan/SKILL.md`](../../skills/ddjj-iibb-san-juan/SKILL.md) (incluye sus scripts y
+referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.
