@@ -70,16 +70,10 @@ Si no coincide con el solicitado:
 
 **Establecimientos conocidos y sus propietarios para el informe:**
 
-| Establecimiento | Propietario en informe |
-|----------------|------------------------|
-| DCG 1 / DCG1   | Ayrton Gil             |
-| DCG 2 / DCG2   | Jacqueline Muñoz       |
-| DCG 4 / DCG4   | Martin Costa           |
-| DCG 5 / DCG5   | Lucas Balmaceda        |
-| DCG 7 / DCG7   | Jose Castro            |
-| DCG 8 / DCG8   | Sebastián Mas          |
-| DCG 9 / DCG9   | Pets Company           |
-| Resto           | Usar nombre tal cual   |
+El mapeo establecimiento → propietario es **dato canónico** en
+[references/establecimientos.json](references/establecimientos.json) (mismo archivo
+que usa la skill `getnet-informe`). Consultá ahí el propietario para pasárselo al
+script. Si el establecimiento no está en el JSON, usar el nombre tal cual.
 
 ---
 

@@ -20,19 +20,12 @@ exportados desde el portal Getnet.
 ## Reglas de negocio
 
 ### Mapeo de establecimientos
-| Establecimiento | Propietario |
-|---|---|
-| DCG 1 / DCG1 | Ayrton Gil |
-| DCG 2 | Jacqueline Muñoz |
-| DCG 4 | Martin Costa |
-| DCG 5 | Lucas Balmaceda |
-| DCG 6 | Romina Gil |
-| DCG 7 | Jose Castro |
-| DCG 8 | Seba Mas |
-| DCG 9 | Pets Company |
+El mapeo establecimiento → propietario es **dato canónico** en
+[references/establecimientos.json](references/establecimientos.json); el script lo
+lee de ahí (`resolver_propietario`). No lo repitas acá para que no se desincronice.
 
 - El nombre del establecimiento **nunca** aparece en el informe; solo el propietario
-- Si el establecimiento no está en la tabla, usar el nombre tal como viene
+- Si el establecimiento no está en el JSON, usar el nombre tal como viene
 
 ### Columnas del detalle de transacciones
 **Mostrar:** Fecha de Operación, Billetera, Marca, Tipo, Nro de Cupón, Monto Bruto  

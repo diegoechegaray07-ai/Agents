@@ -457,7 +457,9 @@ def generar_informe(archivo, propietario, salida):
     print(f"Generado: {salida}")
 
 
-PROPIETARIOS = {
+# Mapeo establecimiento -> propietario. Fuente canonica: references/establecimientos.json.
+# El dict de abajo es solo un fallback por si la skill se corre sin ese archivo.
+_FALLBACK_PROPIETARIOS = {
     'DCG1': 'Ayrton Gil',
     'DCG2': 'Jacqueline Muñoz',
     'DCG4': 'Martin Costa',
@@ -467,6 +469,20 @@ PROPIETARIOS = {
     'DCG8': 'Seba Mas',
     'DCG9': 'Pets Company',
 }
+
+
+def _cargar_propietarios():
+    import json, os
+    ruta = os.path.join(os.path.dirname(__file__), '..', 'references', 'establecimientos.json')
+    try:
+        with open(ruta, encoding='utf-8') as f:
+            datos = json.load(f)
+        return {k: v for k, v in datos.items() if not k.startswith('_')}
+    except (OSError, ValueError):
+        return _FALLBACK_PROPIETARIOS
+
+
+PROPIETARIOS = _cargar_propietarios()
 
 
 def resolver_propietario(nombre_establecimiento):

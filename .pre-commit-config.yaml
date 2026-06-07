@@ -1,0 +1,9 @@
+# Hooks que corren antes de cada commit. Instalá una vez:
+#   pip install pre-commit
+#   pre-commit install
+# Después, cada `git commit` escanea los cambios en busca de secretos.
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks

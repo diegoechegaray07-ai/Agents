@@ -1,0 +1,11 @@
+{
+  "_comment": "Mapeo canonico establecimiento -> propietario para los informes Getnet. Fuente unica de verdad: el script generar_informe.py lo lee de aca. Si cambia, editar este archivo (y su copia en getnet-flujo-completo/references/).",
+  "DCG1": "Ayrton Gil",
+  "DCG2": "Jacqueline Muñoz",
+  "DCG4": "Martin Costa",
+  "DCG5": "Lucas Balmaceda",
+  "DCG6": "Romina Gil",
+  "DCG7": "Jose Castro",
+  "DCG8": "Seba Mas",
+  "DCG9": "Pets Company"
+}
