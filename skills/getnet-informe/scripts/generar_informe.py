@@ -96,6 +96,15 @@ def h_row(labels, fs=8):
 # ══════════════════════════════════════════════════════════════════════════════
 def generar_informe(archivo, propietario, salida):
     df = pd.read_excel(archivo)
+    
+    # Filtrar operaciones rechazadas
+    col_estado = [c for c in df.columns if c.strip().lower() == 'estado']
+    if not col_estado:
+        col_estado = [c for c in df.columns if 'estado' in c.lower()]
+    if col_estado:
+        col = col_estado[0]
+        df = df[~df[col].astype(str).str.strip().str.lower().str.startswith('rechaza')]
+        
     df['Fecha'] = pd.to_datetime(df['Fecha de Operación'], dayfirst=True).dt.date
 
     monto_bruto = df['Monto Bruto Transacción'].sum()
@@ -502,6 +511,13 @@ if __name__ == '__main__':
 
     # Insertar rango de fechas en el nombre del PDF
     df_preview = pd.read_excel(sys.argv[1])
+    col_estado = [c for c in df_preview.columns if c.strip().lower() == 'estado']
+    if not col_estado:
+        col_estado = [c for c in df_preview.columns if 'estado' in c.lower()]
+    if col_estado:
+        col = col_estado[0]
+        df_preview = df_preview[~df_preview[col].astype(str).str.strip().str.lower().str.startswith('rechaza')]
+
     fechas = pd.to_datetime(df_preview['Fecha de Operación'], dayfirst=True).dt.date
     desde = fechas.min().strftime('%d-%m-%Y')
     hasta = fechas.max().strftime('%d-%m-%Y')
