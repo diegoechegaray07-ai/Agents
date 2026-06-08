@@ -110,7 +110,8 @@ pip install pandas openpyxl reportlab --break-system-packages -q
 
 ## Notas importantes
 
-- El script maneja automáticamente la columna **Plan Cuotas** (la omite si está vacía)
-- El script maneja automáticamente **Monto Neto** (lo omite si no hay CFT/IVA CFT)
-- Los anchos de columna del detalle están calibrados al contenido real de Getnet
-- Si se procesan **múltiples archivos**, ejecutar el script una vez por cada xlsx y presentar todos los PDFs juntos al finalizar
+- El script filtra y descarta automáticamente las operaciones rechazadas (columna Estado = "rechazada").
+- El script maneja automáticamente la columna **Plan Cuotas** (la omite si está vacía).
+- El script maneja automáticamente **Monto Neto** (lo omite si no hay CFT/IVA CFT).
+- Los anchos de columna del detalle están calibrados al contenido real de Getnet.
+- Si se procesan **múltiples archivos**, ejecutar el script una vez por cada xlsx y presentar todos los PDFs juntos al finalizar.

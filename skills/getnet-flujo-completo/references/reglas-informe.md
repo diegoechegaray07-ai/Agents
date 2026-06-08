@@ -12,6 +12,10 @@
 - **DCG 9 / DCG9** → `Pets Company`
 - Resto → usar el nombre del establecimiento tal cual
 
+### Filtrado de transacciones rechazadas
+- **Regla:** Cualquier transacción cuyo estado comience con la palabra "rechaza" (ej. "Rechazada", "Rechazado", "Rechazadas", etc., caso insensible a mayúsculas/minúsculas) debe ser **completamente desestimada** de todos los cálculos del reporte, KPIs, tablas de resumen y detalle.
+- **Detección:** Buscar la columna con nombre "Estado" (o cualquier columna que contenga la palabra "estado" de manera insensible).
+
 ### Columnas del detalle de transacciones
 | Columna | Regla |
 |---------|-------|
@@ -94,7 +98,7 @@ AZUL_TOTAL  = #D0E8FB   # fila total
 Calibrados al contenido real de Getnet (fuente 7.2pt):
 
 | Columna | Ancho fijo |
-|---------|-----------|
+|---------|----------|
 | Fecha de Operación | 2.85 cm |
 | Billetera | 2.50 cm |
 | Marca | 1.60 cm |
