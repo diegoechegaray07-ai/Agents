@@ -33,8 +33,7 @@ que el resto de las herramientas simplemente ignora.
 | [arca-informe](skills/arca-informe/) | Informe PDF de "Comprobantes Emitidos" de ARCA desde un xlsx | script Python |
 | [ddjj-iibb-san-juan](skills/ddjj-iibb-san-juan/) | Liquidación de IIBB San Juan (PDF) desde un xlsx de ARCA | script Python |
 | [cargar-factura-proveedor](skills/cargar-factura-proveedor/) | Lee facturas de proveedor (PDF o foto) y las carga en Alegra | OCR + API |
-| [getnet-flujo-completo](skills/getnet-flujo-completo/) | Descarga transacciones de Getnet por browser + genera informe | MCP browser |
-| [getnet-informe](skills/getnet-informe/) | Informe PDF de ventas Getnet desde un xlsx | script Python |
+| getnet | Informes PDF de ventas Getnet desde OneDrive — **vive en el repo aparte `GitHub/getnet`**; acá solo quedan stubs obsoletos (`getnet-flujo-completo`, `getnet-informe`) que redirigen | repo getnet |
 | [reposicion-stock](skills/reposicion-stock/) | Qué comprar/fraccionar cruzando stock de Alegra con ventas | script Python + API |
 | [qr-pets-company](skills/qr-pets-company/) | Regenera carteles/stickers de cobro con QR de Mercado Pago | script Python |
 | [marketing-ideas](skills/marketing-ideas/) | Prioriza ideas de marketing con un score de viabilidad (MFS) | solo prompt ✅ |

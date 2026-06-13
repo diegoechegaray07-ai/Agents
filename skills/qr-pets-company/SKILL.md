@@ -14,59 +14,38 @@ description: >-
 
 # Materiales QR de Pets Company
 
-Pets Company cobra **por transferencia de Mercado Pago** (alias `petscompany`),
-no con el QR de cobro de MP (que tiene comisión). Estos materiales muestran el
-QR + el alias para que el cliente transfiera.
+Pets Company cobra **por transferencia de Mercado Pago** (alias `petscompany`), no con el QR de cobro de MP (que tiene comisión). Estos materiales muestran el QR + el alias para que el cliente transfiera.
 
-Hay cuatro entregables, todos en `<proyecto>/data/`:
+Hay cuatro entregables, todos guardados en `<proyecto>/data/`:
 - `cartel_petscompany.png` — cartel base vertical.
 - `cartel_petscompany_A4.pdf` — cartel para imprimir en A4.
 - `sticker_petscompany.png` / `.pdf` — tarjeta chica para el mostrador.
 
-El proyecto está, por defecto, en:
-`D:\OneDrive\DCG y ROE - Diego\Diego Contabilidad\Antigravity\QR`
+El proyecto está en la ruta local:
+`D:\OneDrive\DCG y ROE - Diego\Diego\Antigravity\QR`
+(en Mac: `.../OneDrive-Personal/DCG y ROE - Diego/Diego/Antigravity/QR`)
 
-## Cómo regenerar (caso normal)
+## 1. Cómo regenerar (Caso Normal)
 
-Con el QR oficial actual (no cambió el CVU), corré el orquestador:
+Con el QR oficial actual (sin cambios de CVU), ejecuta el orquestador:
 
-```
+```bash
 python scripts/regenerar.py
 ```
 
-Esto regenera los cuatro materiales. El script borra cada salida antes de
-recrearla para esquivar el `OSError: [Errno 22]` que tira PIL al sobrescribir
-archivos que OneDrive mantiene como placeholder (es el gotcha más común acá).
+*Nota: El script borra cada archivo de salida antes de recrearlo para evitar el `OSError: [Errno 22]` que arroja PIL al intentar sobrescribir archivos que OneDrive mantiene como placeholder.*
 
-## Si cambió el CVU/CBU
+## 2. Si cambió el CVU/CBU (Actualización de QR)
 
-El QR "oficial" (`assets/qr_oficial.png`) es un QR interoperable Coelsa/EMVCo que
-codifica el CBU/CVU real. Si Diego te pasa un **CVU/CBU de 22 dígitos**, regeneralo
-primero pasándolo al orquestador:
+El QR oficial (`assets/qr_oficial.png`) codifica el CBU/CVU real (Coelsa/EMVCo). Si Diego te indica un **CVU/CBU de 22 dígitos**, actualízalo primero pasándolo al orquestador:
 
-```
+```bash
 python scripts/regenerar.py --cbu <CVU22>
 ```
 
-Opcionalmente podés pasar `--alias`, `--cuit`, `--titular` si cambiaron (sino usa
-los defaults del proyecto: alias `petscompany`, CUIT `20330595516`, titular
-"Diego Andres Echegaray").
+Opcionalmente, puedes especificar `--alias`, `--cuit` o `--titular` si han cambiado (de lo contrario utilizará los valores predeterminados del proyecto: alias `petscompany`, CUIT `20330595516`, titular "Diego Andres Echegaray"). Si el proyecto QR estuviese en otra ruta, agrega `--proyecto <ruta>`.
 
-Si el proyecto QR estuviera en otra ruta, agregá `--proyecto <ruta>`.
+## 3. Guías de Verificación y Notas de Desarrollo
 
-## Después de regenerar
-
-Mostrale a Diego una vista previa de los resultados (al menos el sticker y el A4)
-leyendo los archivos generados, para que confirme que quedaron bien. Si pide
-ajustes de diseño (tamaños, colores, textos), esos viven en los scripts del
-proyecto (`src/qr_petscompany.py`, `src/sticker_petscompany.py`,
-`src/cartel_a4_pdf.py`) y en el kit `src/design_kit.py`.
-
-## Notas
-
-- **Idioma: español.** Confirmá antes de operaciones destructivas.
-- **Git:** el repo está en `Antigravity/` (carpeta superior del proyecto QR).
-  Si vas a commitear, stageá solo rutas explícitas de `QR/` (nunca `git add .`,
-  hay ruido de OneDrive de otras carpetas).
-- Requiere las dependencias del proyecto (`qrcode`, `Pillow`); ya están instaladas
-  en el entorno de Diego.
+Consulta el siguiente archivo de referencia tras finalizar la generación o si necesitas editar el diseño:
+- **Instrucciones adicionales y notas de desarrollo:** Consulta [`references/instrucciones-adicionales.md`](references/instrucciones-adicionales.md) para ver la guía de validación visual, listado de scripts del código fuente y notas sobre Git.

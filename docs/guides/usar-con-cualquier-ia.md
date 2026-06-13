@@ -85,7 +85,9 @@ un entorno que ejecute código y las credenciales correspondientes.
 | Tipo | Skills | Portabilidad |
 |---|---|---|
 | Solo prompt | `marketing-ideas`, `arquitecto-de-skills` | Total: cualquier chat |
-| Prompt + script Python | `arca-informe`, `ddjj-iibb-san-juan`, `getnet-informe`, `reposicion-stock`, `qr-pets-company`, `docx`, `pdf`, `pptx`, `xlsx` | Necesita ejecutar Python |
+| Prompt + script Python | `arca-informe`, `ddjj-iibb-san-juan`, `reposicion-stock`, `qr-pets-company`, `docx`, `pdf`, `pptx`, `xlsx` | Necesita ejecutar Python |
 | Prompt + API externa | `alegra-api`, `cargar-factura-proveedor` | Necesita API + credenciales en `.env` |
-| Prompt + browser (MCP) | `getnet-flujo-completo` | Necesita un navegador controlable por la IA |
+
+> Los informes de Getnet viven en el repo aparte `GitHub/getnet` (skill `getnet`);
+> acá solo quedan stubs obsoletos que redirigen.
 | Prompt + imágenes | `especialista-imagenes` | Mejor con tooling de imágenes/Canva |

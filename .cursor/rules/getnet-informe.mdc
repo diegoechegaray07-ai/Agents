@@ -1,13 +1,10 @@
-﻿---
-description: Generar informe PDF de ventas Getnet desde un xlsx
+---
+description: OBSOLETA — los informes Getnet se hacen con la skill getnet (repo GitHub/getnet). No activar esta regla.
 globs:
 alwaysApply: false
 ---
 
-# getnet-informe
+# getnet-informe (obsoleta)
 
-Generar informe PDF de ventas Getnet desde un xlsx.
-
-Cuando la tarea del usuario coincida, lee y segui las instrucciones completas en
-[`skills/getnet-informe/SKILL.md`](../../skills/getnet-informe/SKILL.md) (incluye sus scripts y
-referencias). Esa es la fuente de verdad: no dupliques la logica en esta regla.
+Reemplazada por la skill **getnet** del repo `GitHub/getnet`
+(`tools/generar_informe.py`).

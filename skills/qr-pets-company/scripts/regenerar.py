@@ -26,7 +26,7 @@ for _stream in (sys.stdout, sys.stderr):
 
 # Ruta por defecto del proyecto QR (ajustable con --proyecto).
 PROYECTO_DEFAULT = Path(
-    r"D:\OneDrive\DCG y ROE - Diego\Diego Contabilidad\Antigravity\QR"
+    r"D:\OneDrive\DCG y ROE - Diego\Diego\Antigravity\QR"
 )
 
 # (script, args extra, archivos de salida a borrar antes de regenerar)

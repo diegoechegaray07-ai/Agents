@@ -36,7 +36,7 @@ python scripts/brandkit.py build --brand petscompany --src "<carpeta con los JPG
 ```
 
 Los originales de Pet's Company están en
-`D:\OneDrive\DCG y ROE - Diego\Diego Contabilidad\Pets Company\logopetscompany`.
+`D:\OneDrive\DCG y ROE - Diego\Diego\Pets Company\logopetscompany`.
 `build` recolorea por color-key sobre fondo sólido (arte monocolor), así que
 funciona para cualquier logo de un solo color sobre fondo plano.
 

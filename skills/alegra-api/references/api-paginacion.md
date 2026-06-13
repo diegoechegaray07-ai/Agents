@@ -1,6 +1,6 @@
 # Paginación y Filtrado Manual (Alegra API)
 
-Este archivo detalla la lógica de paginación y filtrado si decides realizarla manualmente en lugar de usar el cliente compartido [`skills/_shared/alegra_client.py`](../_shared/alegra_client.py).
+Este archivo detalla la lógica de paginación y filtrado si decides realizarla manualmente en lugar de usar el cliente compartido [`skills/_shared/alegra_client.py`](../../_shared/alegra_client.py).
 
 ## Flujo de Trabajo en Consola
 Puedes descargar las páginas usando `curl` y guardarlas en archivos temporales:

@@ -17,8 +17,7 @@ Cuando la petición del usuario coincida con el alcance de una skill, **abrí y 
 | **ddjj-iibb-san-juan** | pida liquidar Ingresos Brutos de San Juan desde un xlsx de ARCA | `skills/ddjj-iibb-san-juan/SKILL.md` |
 | **docx** | trabaje con documentos de Word (`.docx`) | `skills/docx/SKILL.md` |
 | **especialista-imagenes** | quiera crear, editar o componer imágenes/gráfica | `skills/especialista-imagenes/SKILL.md` |
-| **getnet-flujo-completo** | pida descargar transacciones de Getnet y/o el informe | `skills/getnet-flujo-completo/SKILL.md` |
-| **getnet-informe** | suba un xlsx de Getnet y pida el informe de ventas | `skills/getnet-informe/SKILL.md` |
+| **getnet** *(repo aparte)* | pida un informe de ventas Getnet (domingo/martes/miércoles, DCG1…DCG9) | repo `GitHub/getnet` → `skills/getnet/SKILL.md` |
 | **marketing-ideas** | pida ideas/estrategia de marketing priorizadas | `skills/marketing-ideas/SKILL.md` |
 | **pdf** | trabaje con documentos PDF (`.pdf`) para unir, dividir, formularios u OCR | `skills/pdf/SKILL.md` |
 | **pptx** | trabaje con diapositivas o presentaciones de PowerPoint (`.pptx`) | `skills/pptx/SKILL.md` |
