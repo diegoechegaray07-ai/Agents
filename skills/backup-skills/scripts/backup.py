@@ -42,12 +42,13 @@ def get_default_destination() -> Path:
     """Intenta autodetectar la ruta de destino en OneDrive del usuario."""
     home = Path.home()
     
-    # Rutas candidatas de OneDrive
+    # Rutas candidatas de OneDrive. La carpeta "Diego Contabilidad" se renombró a
+    # "Diego" en jun-2026; OneDrive propaga el rename a todas las máquinas.
     candidates = [
-        home / "OneDrive" / "DCG y ROE - Diego" / "Diego Contabilidad" / "Antigravity" / "Skills",
-        home / "Library" / "CloudStorage" / "OneDrive-Personal" / "DCG y ROE - Diego" / "Diego Contabilidad" / "Antigravity" / "Skills",
-        Path("D:/OneDrive/DCG y ROE - Diego/Diego Contabilidad/Antigravity/Skills"),
-        Path("D:/OneDrive - Diego/Diego Contabilidad/Antigravity/Skills")
+        home / "Library" / "CloudStorage" / "OneDrive-Personal" / "DCG y ROE - Diego" / "Diego" / "Antigravity" / "Skills",
+        home / "OneDrive" / "DCG y ROE - Diego" / "Diego" / "Antigravity" / "Skills",
+        Path("D:/OneDrive/DCG y ROE - Diego/Diego/Antigravity/Skills"),
+        Path("D:/OneDrive - Diego/Diego/Antigravity/Skills"),
     ]
     
     for c in candidates:

@@ -18,8 +18,7 @@ disparador; el detalle completo está en el `description` de cada `SKILL.md`.
 | arca-informe | suba un xlsx de ARCA y pida un informe de comprobantes | [skills/arca-informe/SKILL.md](skills/arca-informe/SKILL.md) |
 | ddjj-iibb-san-juan | pida liquidar Ingresos Brutos de San Juan desde un xlsx de ARCA | [skills/ddjj-iibb-san-juan/SKILL.md](skills/ddjj-iibb-san-juan/SKILL.md) |
 | cargar-factura-proveedor | suba una factura de proveedor (PDF o foto) para cargar en Alegra | [skills/cargar-factura-proveedor/SKILL.md](skills/cargar-factura-proveedor/SKILL.md) |
-| getnet-flujo-completo | pida descargar transacciones de Getnet y/o el informe | [skills/getnet-flujo-completo/SKILL.md](skills/getnet-flujo-completo/SKILL.md) |
-| getnet-informe | suba un xlsx de Getnet y pida el informe de ventas | [skills/getnet-informe/SKILL.md](skills/getnet-informe/SKILL.md) |
+| getnet *(en repo aparte)* | pida un informe de ventas Getnet (de domingo/martes/miércoles, DCG1…DCG9) | repo `GitHub/getnet` → `skills/getnet/SKILL.md` |
 | reposicion-stock | pregunte qué comprar / qué reponer / análisis de stock | [skills/reposicion-stock/SKILL.md](skills/reposicion-stock/SKILL.md) |
 | qr-pets-company | pida rehacer los carteles/QR de cobro de Pets Company | [skills/qr-pets-company/SKILL.md](skills/qr-pets-company/SKILL.md) |
 | marketing-ideas | pida ideas/estrategia de marketing priorizadas | [skills/marketing-ideas/SKILL.md](skills/marketing-ideas/SKILL.md) |
