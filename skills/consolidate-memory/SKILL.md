@@ -1,35 +1,36 @@
 ---
 name: consolidate-memory
-description: "Reflective pass over your memory files — merge duplicates, fix stale facts, prune the index."
+description: >
+  Realiza una revisión reflexiva sobre los archivos de memoria del usuario para unificar
+  duplicados, corregir hechos obsoletos y depurar el índice. Úsala siempre que la memoria
+  esté desordenada, contenga hechos duplicados u obsoletos, o cuando el índice de memoria
+  (`MEMORY.md`) exceda las 200 líneas o 25KB. También se activa si el usuario dice "ordená la memoria",
+  "limpiá el índice de memoria", "consolidá lo que aprendiste hoy", "actualizá mis preferencias en la memoria"
+  o frases afines.
 ---
 
-# Memory Consolidation
+# Consolidación de Memoria
 
-You're doing a reflective pass over what you've learned about this user and their work. The goal: a future session should be able to orient quickly — who they work with, what they're focused on, how they like things done — without re-asking.
+Esta habilidad optimiza y limpia tus archivos de memoria para que las futuras sesiones recuperen contexto rápidamente sin redundancia.
 
-Your system prompt's auto-memory section defines the directory, file format, and memory types. Follow it.
+## 1. Flujo de Consolidación
 
-## Phase 1 — Take stock
+Sigue este flujo imperativo:
 
-- List the memory directory and read the index (`MEMORY.md`)
-- Skim each topic file. Note which ones overlap, which look stale, which are thin.
+1. **Revisión General:** Lee el índice (`MEMORY.md`) y revisa los archivos de memoria en la carpeta `brain/memory/` para identificar solapamientos o información obsoleta.
+2. **Consolidar Archivos:**
+   - **Separar lo duradero de lo temporal:** Conserva preferencias, estilos de trabajo, y flujos recurrentes. Retira tareas puntuales ya finalizadas.
+   - **Unificar duplicados:** Fusiona archivos que traten sobre la misma persona o tema.
+   - **Absolutizar fechas:** Convierte "la semana que viene" o "este viernes" a fechas absolutas (ej. `2026-06-12`).
+3. **Depurar el Índice:** Ejecuta el script de validación para eliminar enlaces rotos y registrar archivos huérfanos:
+   ```bash
+   python scripts/manage_memory_index.py <ruta_de_carpeta_memory>
+   ```
 
-## Phase 2 — Consolidate
+## 2. Formato del Índice
+El script formateará `MEMORY.md` bajo el siguiente estándar de línea:
+`- [Título](archivo.md) — descripción corta de una sola línea (gancho)`
 
-**Separate the durable from the dated.** Preferences, working style, key relationships, and recurring workflows are durable — keep and sharpen them. Specific projects, deadlines, and one-off tasks are dated — if the date has passed or the work is done, retire the file or fold the lasting takeaway (e.g. "user prefers X format for launch docs") into a durable one.
-
-**Merge overlaps.** If two files describe the same person, project, or preference, combine into one and keep the richer file's path.
-
-**Fix time references.** Convert "next week", "this quarter", "by Friday" to absolute dates so they stay readable later.
-
-**Drop what's easy to re-find.** If a memory just restates something you could pull from the user's calendar, docs, or connected tools on demand, cut it. Keep what's hard to re-derive: stated preferences, context behind a decision, who to go to for what.
-
-## Phase 3 — Tidy the index
-
-Update `MEMORY.md` so it stays under 200 lines and ~25KB. One line per entry, under ~150 chars: `- [Title](file.md) — one-line hook`.
-
-- Remove pointers to retired memories
-- Shorten any line carrying detail that belongs in the topic file
-- Add anything newly important
-
-Finish with a short summary: how many files you touched and what changed.
+Presenta al usuario un resumen con:
+1. Archivos eliminados, unificados o creados.
+2. Estado del índice final (número de entradas activas).

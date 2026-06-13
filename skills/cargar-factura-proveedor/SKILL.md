@@ -28,36 +28,14 @@ Funciona igual para ambos formatos: la única diferencia es el archivo de entrad
    - Muestra los datos extraídos (y desglose de artículos si corresponde) en una tabla y pide confirmación antes de la subida.
 
 4. **Registro en Alegra:**
-   - Si tiene artículos desglosados, genera el JSON para el parámetro `--items-json` y ejecuta:
-     ```bash
-     python3 upload_provider_bill.py \
-       --provider-name "[Proveedor]" \
-       --provider-id "[CUIT]" \
-       --date "[Fecha YYYY-MM-DD]" \
-       --number "[N° Comprobante]" \
-       --status "open" \
-       --items-json '[{"id": "...", "price": ..., "quantity": ..., "discount": ...}]'
-     ```
-   - Si es gasto general, ejecuta:
-     ```bash
-     python3 upload_provider_bill.py \
-       --provider-name "[Proveedor]" \
-       --provider-id "[CUIT]" \
-       --date "[Fecha YYYY-MM-DD]" \
-       --number "[N° Comprobante]" \
-       --amount [Monto] \
-       --category-id "[ID Categoría]" \
-       --description "[Concepto]" \
-       --status "open"
-     ```
-     *(Nota: En entornos locales, si `tools/upload_provider_bill.py` arroja un error de permiso debido a sandboxing de macOS/OneDrive, ejecuta la copia ubicada directamente en la raíz: `python3 upload_provider_bill.py`)*
+   - Script: `Alegra Pets Company/tools/upload_provider_bill.py`
+   - Si tiene artículos desglosados, usa `--items-json`.
+   - Si es gasto general, usa `--category-id` y `--amount`.
 
 ### Reglas Especiales de Creación y Carga:
-- **Margen de Ganancia, Redondeo y Actualización de Costos:**
-  - **Creación de Artículos:** Si un artículo no existe en el catálogo, se crea aplicando el margen de ganancia correspondiente sobre el costo unitario de la factura (ej. `precio_venta = costo * 1.5` para un 50% de recargo, o `costo * 1.4` para un 40%). El precio de venta final debe ser **redondeado siempre para arriba a la centena de pesos más cercana** (ej. de $1204.88 a $1300, de $17690.61 a $17700, de $7157.89 a $7200).
-  - **Actualización de Costos:** Si el artículo ya existe, **solo se actualiza su costo (y se recalcula su precio de venta con el margen y redondeo correspondientes) en Alegra si el nuevo costo de la factura es estrictamente mayor al costo existente**. Si el nuevo costo es menor o igual al existente, se mantiene sin cambios en el catálogo.
-- **Conflictos de Referencia:** Si el código de referencia ya está en uso por otro producto de Alegra, se debe anteponer el prefijo del proveedor (ej. `MP-` para Maipu, `MP-344`) para evitar errores de duplicidad.
-- **Notas y marcas manuales (ej. 'NO'):** Si algún ítem en la factura tiene una marca manual como "NO" o similar indicando que no debe ser incluido, este artículo se debe omitir por completo del JSON y restar del total del comprobante.
+- **Creación de Artículos:** costo neto de descuento; precio venta = `costo_neto × 1.6`, centena arriba.
+- **Actualización de Costos:** solo si el nuevo costo neto es mayor al existente.
+- **Conflictos de Referencia:** prefijo del proveedor si la referencia está duplicada.
+- **Marcas 'NO':** omitir esos ítems del JSON.
 
-5. **Notificar Resultado:**
-   - Reporta el ID de Alegra, N° definitivo, total y estado devuelto.
+5. **Notificar Resultado:** ID Alegra, número, total, estado.
